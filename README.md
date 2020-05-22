@@ -1,4 +1,4 @@
-#XXE
+# XXE
 
 1. https://portswigger.net/web-security/xxe/lab-exploiting-xxe-to-retrieve-files
 
@@ -101,7 +101,7 @@ ____
 
 ____
 
-#SQL
+# SQL
 
 1. https://portswigger.net/web-security/sql-injection/lab-login-bypass
 
