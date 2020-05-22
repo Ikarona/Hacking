@@ -1,3 +1,5 @@
+#XXE
+
 1. https://portswigger.net/web-security/xxe/lab-exploiting-xxe-to-retrieve-files
 
 1)зайти на сайт, 
@@ -98,6 +100,8 @@ ____
 6)svg части взяты из интернета - видимо что-то типа стандарта,размер задан вручную, ViewBox регулировался так, чтоб было видно текст на картинке, собственно как и размер текста(тоже регулировался)
 
 ____
+
+#SQL
 
 1. https://portswigger.net/web-security/sql-injection/lab-login-bypass
 
