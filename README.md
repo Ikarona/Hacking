@@ -63,22 +63,14 @@ n+1)в итоге получаем
 
 ____
 
-3. https://portswigger.net/web-security/xxe/lab-xinclude-attack
-те же действия, что и в 1. до пункта 4) 
-5) в product id вставить 
-```xml
-<foo xmlns:xi="http://www.w3.org/2001/XInclude">
-<xi:include parse="text" href="file:///etc/passwd"/></foo>
-``` 
-в ответ придёт /etc/passwd
-
-____
 
 4.https://portswigger.net/web-security/xxe/lab-xxe-via-file-upload
 
-1) 2) выбрать статью 
+1) зайти на сайт
 
-3)нажать отправить комментариq(заполнить все поля предварительно) 
+2) выбрать статью 
+
+3)нажать отправить комментарий(заполнить все поля предварительно) 
 
 4)перехватить запрос через Burp
 
