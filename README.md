@@ -1,11 +1,18 @@
 1. https://portswigger.net/web-security/xxe/lab-exploiting-xxe-to-retrieve-files
 1)зайти на сайт, 
+
 2)выбрать продукт, 
+
 3)нажать *Check stock*, 
+
 4)перехватить Post запрос через BURP 
+
 5) после объявления xml добавить
+
 ''' <!DOCTYPE kek [ <!ENTITY res SYSTEM "file:///etc/passwd"> ]> '''
+
 6)заменить product id число на &res; 
+
 7)после этого просто отправить запрос и в ответе придёт /etc/passwd
 
 2. https://portswigger.net/web-security/xxe/lab-exploiting-xxe-to-perform-ssrf
