@@ -17,6 +17,8 @@
 
 7)после этого просто отправить запрос и в ответе придёт /etc/passwd
 
+____
+
 2. https://portswigger.net/web-security/xxe/lab-exploiting-xxe-to-perform-ssrf
 
 те же действия, что и в предыдущей. до пункта 4) 
@@ -53,7 +55,21 @@ n+1)в итоге получаем
 
 6)в ответ придёт /etc/passwd
 
-4.
+
+____
+
+3. https://portswigger.net/web-security/xxe/lab-xinclude-attack
+те же действия, что и в 1. до пункта 4) 
+5) в product id вставить 
+```xml
+<foo xmlns:xi="http://www.w3.org/2001/XInclude">
+<xi:include parse="text" href="file:///etc/passwd"/></foo>
+``` 
+в ответ придёт /etc/passwd
+
+____
+
+4.https://portswigger.net/web-security/xxe/lab-xxe-via-file-upload
 
 1) 2) выбрать статью 
 
@@ -78,10 +94,13 @@ n+1)в итоге получаем
 
 6)svg части взяты из интернета - видимо что-то типа стандарта,размер задан вручную, ViewBox регулировался так, чтоб было видно текст на картинке, собственно как и размер текста(тоже регулировался)
 
+____
 
 1. https://portswigger.net/web-security/sql-injection/lab-login-bypass
 
-1) в графе login ввести administrator'--
+1)в графе login ввести administrator'--
+
+____
 
 2. https://portswigger.net/web-security/sql-injection/union-attacks/lab-find-column-containing-text 
 
